@@ -25,39 +25,54 @@ h1 {
     left: 260px;
 }
 .fulltimer{
+	margin-top: 5px;
 	color:#00134d;
 }
 .container {
+	
+
 	background-color: #e6c300;
 	margin-top: 200px;
 	height:389px;
 	border:2px solid #00134d;
+
 }
 .row{
 	text-align: center;
 }
 .main{
-	position:fixed;
-	top:50%;
-	margin: 0 10% 0 10%;
+
 }	
+.main::after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
 .question{
+
 	color:#e6c300;
 	background-color: #00134d;
 	padding:10px;
-	margin:10px  10px 50%;	
+	margin:0 auto;	
+	width:80%;
+
 }
 .gif{
 	height:200px;
 	width:250px;
 }
 .answerbtn{
+	clear: both;
+	float: left;
+	width: 70%;
+	margin-left: 15%;
+	margin-top: 10px;
 	color:#e6c300;
 	background-color: #00134d;
-	padding:10px;
-	width:82.5%;
-	margin:10px 50px;
+	padding:7px;
 	font-weight: bold
+
 }
 .restartbtn{
 	font-size:25px;
