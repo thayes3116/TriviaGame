@@ -71,7 +71,7 @@ var correct = 0,
 			gif: "<img class ='gif' src ='assets/images/dance.gif'>",
 			explanation: "Mmm, California… Beautiful"
 }];
-var restart;
+
 $( document ).ready(function() {
     console.log( "ready!");
 
@@ -82,7 +82,7 @@ $( document ).ready(function() {
 		function time(){
 			gifstop();
 			$(".iscorrect").empty();
-			number = 1;
+			number = 10;
 			intervalId = setInterval(decrement, 1000);
 }
 		function decrement() {
@@ -105,7 +105,7 @@ $( document ).ready(function() {
 			stop();
 			$(".fulltimer").hide();
 			$(".timer").empty();
-			gifnumber = 1;
+			gifnumber = 5;
 			intervalId2 = setInterval(gifdecrement, 1000);
 }	
 		function gifdecrement() {
@@ -114,7 +114,7 @@ $( document ).ready(function() {
 				if(place < 7){
 					showquestion();
 					time();
-				}else if(place = 7){
+				}else if(place == 7){
 					gifstop();
 					$(".iscorrect").hide();
 					$(".main").hide();
@@ -146,11 +146,13 @@ $( document ).ready(function() {
 			$(".para").html("Here are your stats:<br>Correct Answers: "+ correct + "<br>Incorrect Answers: " + incorrect + "<br>Unanswered Questions: " + unanswered +"<br>Press the Restart button if you'd like to try again")
 			$(".restartbtn").show();	
 }
-		restart = function restart(){
+		function restart(){
+
 			place = 0;
+			$(".iscorrect").show();
 			$(".restartbtn").hide();
-			time();
 			showquestion();
+			time();
 			unanswered = 0;
 			correct = 0;
 			incorrect = 0;			
