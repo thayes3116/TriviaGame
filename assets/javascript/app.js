@@ -1,4 +1,4 @@
-
+//Here we declare at the global variables and fill our question objects
 var correct = 0,
 	incorrect = 0,
 	unanswered= 0,
@@ -71,20 +71,22 @@ var correct = 0,
 			gif: "<img class ='gif' src ='assets/images/dance.gif'>",
 			explanation: "Mmm, California… Beautiful"
 }];
-
+//get the document ready
 $( document ).ready(function() {
     console.log( "ready!");
-
+//hide element not needed at start
     	$(".restartbtn").hide();
     	$(".main").hide();
     	$(".fulltimer").hide();
-
+//function controling main time 
 		function time(){
 			gifstop();
 			$(".iscorrect").empty();
 			number = 10;
 			intervalId = setInterval(decrement, 1000);
 }
+//function controling main time decrement. Show timer.
+//Built in if number = 0.
 		function decrement() {
 			number--;
 			$(".fulltimer").show();
@@ -98,9 +100,11 @@ $( document ).ready(function() {
 					answerable++;
 		}
 }
+//function to stop main timer function
 		function stop() {
       		clearInterval(intervalId);
 }
+//function to control gif timer 
 		function giftime() {
 			stop();
 			$(".fulltimer").hide();
@@ -108,6 +112,8 @@ $( document ).ready(function() {
 			gifnumber = 5;
 			intervalId2 = setInterval(gifdecrement, 1000);
 }	
+//function to decrease gif timer
+//built in to account for end of questions
 		function gifdecrement() {
 			gifnumber--;
 			if(gifnumber === 0){
@@ -122,15 +128,20 @@ $( document ).ready(function() {
 				}	
 }
 }
+//function to stop gif timer
 		function gifstop() {
       		clearInterval(intervalId2);
-}     		
+}  
+//function to show quote or interesting fact
+//place increases to track number of question   		
 		function showpara(){
 			$(".para").html(questions[place].explanation).show();
 			place++,
 			console.log("place" + place);
 			giftime();
 }
+//function to show question and answers
+//disables answer buttons
 		function showquestion() {
 			console.log("place" + place);
 			$(".para").hide();
@@ -141,13 +152,14 @@ $( document ).ready(function() {
 			$(".answer3").html(questions[place].answer3);
 			$(".answer4").html(questions[place].answer4);
 			answerable--;			
-}	
+}
+//show stat after questions are done	
 		function showresults(){
 			$(".para").html("Here are your stats:<br>Correct Answers: "+ correct + "<br>Incorrect Answers: " + incorrect + "<br>Unanswered Questions: " + unanswered +"<br>Press the Restart button if you'd like to try again")
 			$(".restartbtn").show();	
 }
+//restart game function
 		function restart(){
-
 			place = 0;
 			$(".iscorrect").show();
 			$(".restartbtn").hide();
@@ -157,11 +169,13 @@ $( document ).ready(function() {
 			correct = 0;
 			incorrect = 0;			
 }
+//functions for start button click
     	$(".startbtn").on("click",function(){
 				time();
 				showquestion();
 				$(this).hide();
 });
+ //functions for answer button click
 		$(".answerbtn").on('click', function(){
 			if(answerable ===0){
 				answerable++;
@@ -183,7 +197,7 @@ $( document ).ready(function() {
 			}
 			}
 		});
-		
+//function for restart button click		
 		$(".restartbtn").on("click",function(){
 				restart();
 	});
