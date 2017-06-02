@@ -20,9 +20,8 @@ h1 {
 	background-color: #00134d; 
 	width :200px;
 	padding:20px;
-	position:relative;
-	top: 150px;
-    left: 260px;
+	margin-top: 17%;
+	margin-left:39%;
 }
 .fulltimer{
 	margin-top: 5px;

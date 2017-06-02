@@ -74,10 +74,12 @@ var correct = 0,
 //get the document ready
 $( document ).ready(function() {
     console.log( "ready!");
-//hide element not needed at start
+//hide element not needed at start//
+
     	$(".restartbtn").hide();
     	$(".main").hide();
     	$(".fulltimer").hide();
+
 //function controling main time 
 		function time(){
 			gifstop();
@@ -175,7 +177,7 @@ $( document ).ready(function() {
 				showquestion();
 				$(this).hide();
 });
- //functions for answer button click
+ 
 		$(".answerbtn").on('click', function(){
 			if(answerable ===0){
 				answerable++;
