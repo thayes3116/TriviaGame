@@ -178,6 +178,7 @@ $( document ).ready(function() {
 			else{
 				$(".iscorrect").html("Sorry, you were incorrect. The correct is " + questions[place].correct);
 					incorrect++;
+					$(".main").hide();
 					showpara();				
 			}
 			}
